@@ -1,10 +1,40 @@
 import math
 import numpy as np
 import gym
+from gym.envs.registration import register
+from gym.envs.classic_control import CartPoleEnv
+
+
+class CustomCartPole(CartPoleEnv):
+    def __init__(self, *args, **kwargs):
+        super(CustomCartPole, self).__init__(*args, **kwargs)
+        self.masspole *= 1.0 # mast weight
+        self.length *= 1.0 # mast length
+        self.wind = False
+
+    def step(self, action):
+        observation, reward, done, _, _ = super(CustomCartPole, self).step(action)
+
+        if self.wind:
+            # Introduce external disturbances (wind)
+            wind = np.random.uniform(-0.05, 0.05)  # simulates a random wind force
+            observation[0] += wind
+
+        # Customizing the reward
+        x_position = observation[0]   # cart position
+        pole_angle = observation[2]   # pendulum angle
+
+        # Penalizes the agent as he moves away from the center
+        reward -= abs(x_position) * 0.5
+
+        # Penalizes the agent as the pendulum swings
+        reward -= abs(pole_angle) * 2
+
+        return observation, reward, done, False, {}
 
 
 class QLearningAgent:
-    def __init__(self, n_actions, n_states, alpha=0.1, gamma=0.99, epsilon=0.5):
+    def __init__(self, n_actions, n_states, alpha, gamma, epsilon):
         self.n_actions = n_actions
         self.alpha = alpha
         self.gamma = gamma
@@ -32,7 +62,7 @@ def discretize_state(env, buckets, obs):
 
 def training(env, q_agent, buckets, episodes, debug=False):
     if debug:
-        log_file = open("default_env_training.log", "w")
+        log_file = open("custom_env_training.log", "w")
 
     for episode in range(episodes):
         obs, _ = env.reset()
@@ -79,9 +109,10 @@ def training(env, q_agent, buckets, episodes, debug=False):
 
 def test_agent(env, q_agent, buckets, test_episodes):
     total_reward = 0
-    for _ in range(test_episodes):
+    for episode in range(test_episodes):
         obs, _ = env.reset()
         done = False
+        print(f"Testing on Episode: {episode + 1}")
         while not done:
             state = discretize_state(env, buckets, obs)
             action = np.argmax(q_agent.q_table[*state, :])
@@ -91,27 +122,41 @@ def test_agent(env, q_agent, buckets, test_episodes):
     print(f"Average reward over {test_episodes} test trials: {total_reward / test_episodes}")
 
 
-def main():
+def main(env_name, buckets, training_episodes, test_episodes, agent_params, debug=False):
 
     # ===Training===
-    env = gym.make('CartPole-v1')
+    env = gym.make(env_name)
     n_actions = env.action_space.n
 
-    buckets = (2, 2, 6, 12)
-    q_agent = QLearningAgent(n_actions, n_states=buckets)
+    q_agent = QLearningAgent(n_actions, n_states=buckets, **agent_params)
 
-    episodes = 10000
-
-    training(env, q_agent, buckets, episodes, debug=True)
+    training(env, q_agent, buckets, training_episodes, debug=debug)
     env.close()
 
     # ===Test===
-    test_episodes = 3
-    visual_env = gym.make('CartPole-v1', render_mode='human')
+    visual_env = gym.make(env_name, render_mode='human')
 
     test_agent(visual_env, q_agent, buckets, test_episodes)
     visual_env.close()
 
 
 if __name__ == '__main__':
-    main()
+
+    buckets = (2, 2, 6, 12)
+    training_episodes = 1000
+    test_episodes = 3
+
+    agent_params = {
+        'alpha': 0.1,
+        'gamma': 0.5,
+        'epsilon': 0.1
+    }
+
+    register(
+        id='CustomCartPole-v1',
+        entry_point='__main__:CustomCartPole',
+        max_episode_steps=500,
+        reward_threshold=475.0,
+    )
+
+    main('CustomCartPole-v1', buckets, training_episodes, test_episodes, agent_params, debug=True)
