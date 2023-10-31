@@ -1,0 +1,16 @@
+|- log
+    |- training.log
+|- src
+    |- app
+        |- __init__.py
+        |- custom_env.py
+        |- qlearning_agent.py
+    |- modules
+        |- __init__.py
+        |- testing.py
+        |- training.py
+|- .gitignore
+|- LICENSE
+|- README.md
+|- requirements.txt
+|- run.py
