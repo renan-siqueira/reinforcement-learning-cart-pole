@@ -15,6 +15,28 @@ This repository provides implementations of a Q-learning agent to balance a pole
 - gym
 - (optional) Pygame, if using Gym's 'human' rendering mode.
 
+To install the required libraries, you can use:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Directory Structure:
+
+.
+|-- run.py                     # Main execution script
+|-- src/
+|   |-- app/
+|   |   |-- custom_env.py      # Custom environment definition
+|   |   `-- qlearning_agent.py # Q-learning agent definition
+|   |-- modules/
+|   |   |-- testing.py         # Agent testing procedures
+|   |   `-- training.py        # Agent training procedures
+`-- log/
+    `-- training.log           # Log file for debugging during training
+
 ---
 
 ## How to Run:
@@ -67,10 +89,10 @@ The custom environment introduces a few modifications:
 
 ### Debugging:
 
-Both implementations include a `debug` flag during training. When `debug=True`, the choice of action (exploring vs exploiting) and Q-table updates are logged into separate log files (`default_env_training.log` for the default environment and `custom_env_training.log` for the custom environment).
+Both implementations feature a `debug` option during training. If set to `debug=True`, the log captures the nature of action chosen (exploration vs. exploitation) and any changes to the Q-table. The log can be found at `log/training.log`.
 
 ---
 
-## Credits:
+## Acknowledgments:
 
-This project was developed with the help of the OpenAI platform and based on tutorials and documentation from the OpenAI Gym library.
+This venture was realized with the support of the OpenAI platform, and it draws inspiration from tutorials and resources available on the OpenAI Gym library.

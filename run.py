@@ -2,7 +2,6 @@ import argparse
 import gym
 from gym.envs.registration import register
 
-from src.app.custom_env import CustomCartPole
 from src.app.qlearning_agent import QLearningAgent
 from src.modules.training import training
 from src.modules.testing import test_agent
@@ -13,7 +12,7 @@ def main(env_name, buckets, training_episodes, test_episodes, agent_params, debu
     if env_name == 'CustomCartPole-v1':
         register(
             id='CustomCartPole-v1',
-            entry_point='__main__:CustomCartPole',
+            entry_point='src.app.custom_env:CustomCartPole',
             max_episode_steps=500,
             reward_threshold=475.0,
         )
@@ -37,13 +36,13 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     buckets = (2, 2, 6, 12)
-    training_episodes = 100
-    test_episodes = 3
+    training_episodes = 1000
+    test_episodes = 1
 
     agent_params = {
         'alpha': 0.1,
-        'gamma': 0.5,
-        'epsilon': 0.6
+        'gamma': 0.2,
+        'epsilon': 0.7
     }
 
     # Use 'CartPole-v1' for default and 'CustomCartPole-v1' for --custom

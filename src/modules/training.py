@@ -41,7 +41,7 @@ def training(env, q_agent, buckets, episodes, debug=False):
 
         if (episode + 1) % 100 == 0:
             log_message = f"Episode {episode+1} completed\n"
-            print(log_message)
+            print(log_message, end='')
             if debug:
                 log_file.write(log_message)
 
