@@ -1,6 +1,6 @@
 # Q-Learning Agent for CartPole
 
-his repository provides implementations of a Q-learning agent to balance a pole on a cart. The agent is implemented in two different environments:
+This repository provides implementations of a Q-learning agent to balance a pole on a cart. The agent is implemented in two different environments:
 
 1. The default `CartPole-v1` environment provided by OpenAI's `gym`.
 
