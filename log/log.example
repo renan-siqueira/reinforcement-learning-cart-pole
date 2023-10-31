@@ -1,0 +1,36 @@
+Episode 1, Step 0: Exploring with action 1
+Episode 1, Step 0: State: (1, 0, 2, 6), Action: 1, Reward: 0.9686908274888992, Old Q-value: 0.0, New Q-value: 0.09686908274888993
+Episode 1, Step 1: Exploiting with action 1
+Episode 1, Step 1: State: (1, 1, 2, 4), Action: 1, Reward: 0.957037478685379, Old Q-value: 0.0, New Q-value: 0.09570374786853791
+Episode 1, Step 2: Exploring with action 0
+Episode 1, Step 2: State: (1, 1, 2, 2), Action: 0, Reward: 0.9316419884562492, Old Q-value: 0.0, New Q-value: 0.09507827380299569
+Episode 1, Step 3: Exploring with action 1
+Episode 1, Step 3: State: (1, 1, 2, 4), Action: 1, Reward: 0.9197574742138386, Old Q-value: 0.09570374786853791, New Q-value: 0.1800106859791279
+Episode 1, Step 4: Exploring with action 0
+Episode 1, Step 4: State: (1, 1, 2, 2), Action: 0, Reward: 0.8939328975975513, Old Q-value: 0.09507827380299569, New Q-value: 0.1785639499020338
+Episode 1, Step 5: Exploiting with action 0
+Episode 1, Step 5: State: (1, 1, 2, 4), Action: 0, Reward: 0.8814128488302231, Old Q-value: 0.0, New Q-value: 0.09007866653800012
+Episode 1, Step 6: Exploiting with action 1
+Episode 1, Step 6: State: (1, 0, 2, 6), Action: 1, Reward: 0.8820511884987354, Old Q-value: 0.09686908274888993, New Q-value: 0.17898750704345706
+Episode 1, Step 7: Exploring with action 1
+Episode 1, Step 7: State: (1, 1, 2, 4), Action: 1, Reward: 0.8684855587780476, Old Q-value: 0.1800106859791279, New Q-value: 0.25242945225706054
+Episode 1, Step 8: Exploring with action 0
+Episode 1, Step 8: State: (1, 1, 2, 2), Action: 0, Reward: 0.8407192006707191, Old Q-value: 0.1785639499020338, New Q-value: 0.24477947497890234
+Episode 1, Step 9: Exploring with action 1
+Episode 1, Step 9: State: (1, 1, 2, 3), Action: 1, Reward: 0.825965516269207, Old Q-value: 0.0, New Q-value: 0.08749214112649875
+Episode 1, Step 10: Exploring with action 1
+Episode 1, Step 10: State: (1, 1, 2, 2), Action: 1, Reward: 0.7967964187264442, Old Q-value: 0.0, New Q-value: 0.07967964187264442
+Episode 1, Step 11: Exploring with action 0
+Episode 1, Step 11: State: (1, 1, 2, 0), Action: 0, Reward: 0.7531367726624012, Old Q-value: 0.0, New Q-value: 0.07531367726624012
+Episode 1, Step 12: Exploiting with action 1
+Episode 1, Step 12: State: (1, 1, 2, 1), Action: 1, Reward: 0.7220693677663803, Old Q-value: 0.0, New Q-value: 0.07371321032196283
+Episode 1, Step 13: Exploiting with action 0
+Episode 1, Step 13: State: (1, 1, 2, 0), Action: 0, Reward: 0.6761470139026642, Old Q-value: 0.07531367726624012, New Q-value: 0.1368712751363218
+Episode 1, Step 14: Exploring with action 1
+Episode 1, Step 14: State: (1, 1, 2, 1), Action: 1, Reward: 0.6423634886741638, Old Q-value: 0.07371321032196283, New Q-value: 0.13331566365990938
+Episode 1, Step 15: Exploring with action 1
+Episode 1, Step 15: State: (1, 1, 2, 0), Action: 1, Reward: 0.5933544561266899, Old Q-value: 0.0, New Q-value: 0.05933544561266899
+Episode 1, Step 16: Exploiting with action 0
+Episode 1, Step 16: State: (1, 1, 1, 0), Action: 0, Reward: 0.5289667397737503, Old Q-value: 0.0, New Q-value: 0.05289667397737503
+Episode 1, Step 17: Exploring with action 0
+Episode 1, Step 17: State: (1, 1, 1, 0), Action: 0, Reward: 0.4759115129709244, Old Q-value: 0.05289667397737503, New Q-value: 0.09625609135627747
