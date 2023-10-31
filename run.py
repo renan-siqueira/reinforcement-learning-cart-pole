@@ -1,3 +1,4 @@
+import argparse
 import gym
 from gym.envs.registration import register
 
@@ -31,6 +32,10 @@ def main(env_name, buckets, training_episodes, test_episodes, agent_params, debu
 
 if __name__ == '__main__':
 
+    parser = argparse.ArgumentParser(description="Choose the environment for the Q-learning agent.")
+    parser.add_argument('--custom', action='store_true', help="Use the custom environment.")
+    args = parser.parse_args()
+
     buckets = (2, 2, 6, 12)
     training_episodes = 100
     test_episodes = 3
@@ -41,7 +46,7 @@ if __name__ == '__main__':
         'epsilon': 0.6
     }
 
-    # Use 'CartPole-v1' for default and 'CustomCartPole-v1' for custom
-    env_choice = 'CustomCartPole-v1'  # or 'CartPole-v1'
+    # Use 'CartPole-v1' for default and 'CustomCartPole-v1' for --custom
+    env_choice = 'CustomCartPole-v1' if args.custom else 'CartPole-v1'
 
     main(env_choice, buckets, training_episodes, test_episodes, agent_params, debug=True)
