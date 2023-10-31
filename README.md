@@ -8,14 +8,6 @@ This repository provides implementations of a Q-learning agent to balance a pole
 
 ---
 
-## Files in the Repository:
-
-- `default_env_qlearning_agent.py`: Contains the implementation for training and testing the Q-learning agent on the default `CartPole-v1` environment.
-
-- `custom_env_qlearning_agent.py`: Contains the implementation for training and testing the Q-learning agent on the custom `CustomCartPole-v1` environment.
-
----
-
 ## Requirements:
 
 - Python 3.x
@@ -30,13 +22,13 @@ This repository provides implementations of a Q-learning agent to balance a pole
 ### Training and Testing on the Default Environment:
 
 ```bash
-python default_env_qlearning_agent.py
+python run.py
 ```
 
 ### Training and Testing on the Custom Environment:
 
 ```bash
-python custom_env_qlearning_agent.py
+python run.py --custom
 ```
 
 ---
